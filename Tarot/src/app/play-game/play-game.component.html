@@ -1,0 +1,26 @@
+<div class="background">
+  <div class="containe" id="blur">
+    <a id="open">
+      <div class="car" id="card{{i}}" *ngFor="let card of cards index as i">
+        <div class="face front" (click)="false; $event.stopPropagation();">
+          <img src="{{urlImage}}{{card.image}}">
+        </div>
+        <div class="face back" (click)="cardModal(card)"></div>
+      </div>
+    </a>
+    <a id="start" class="btn btn-white btn-animate btn-play"
+      (click)="true; $event.stopPropagation(); embaralhar();">Embaralhar</a>
+  </div>
+
+  <!-- Modal -->
+  <div id="popup">
+    <div class="carModal">
+      <h2>{{name}}</h2>
+      <img src="{{urlImage}}{{img}}" class="imgCardModal" alt="">
+      <a id="closed" (click)="reload()" class="btn btn-white btn-animate btn-closed" style="margin-top: -2%;">Fechar</a>
+    </div>
+    <span>{{text}}</span>
+  </div>
+  <!-- -->
+
+  <script src="/src/js/cards.js"></script>
